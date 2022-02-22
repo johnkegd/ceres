@@ -7,6 +7,23 @@ Art and technology synchronized in harmony. Web app prototype
 
 ## Demo: https://github.com/johnkegd/ceres
 
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
+| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
+| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
+| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+
+
+## 🔗 More about
+<!--
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/johnkegd)
+-->
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+[![Instagram](https://img.shields.io/badge/instagram-00b48a?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/ceres.creations_/)
+[![Youtube](https://img.shields.io/badge/youtube-00b48a?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/)
 
 ## Authors
 
@@ -14,28 +31,10 @@ Art and technology synchronized in harmony. Web app prototype
 - [@Manuel Duran](https://www.github.com/manuelmid)
 
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
-# create-svelte
+# create-svelte starter
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
 
 ## Developing
 
@@ -59,3 +58,8 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
