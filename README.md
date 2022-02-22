@@ -1,6 +1,6 @@
-# Manuel Duran - Ceres creations web application
+# Ceres creations web app
 
-Initial prototype of web application for page design and creation of objects, 3d animations.
+Art and technology synchronized in harmony. Web app prototype
 
 <a href="https://www.github.com/johnkegd/ceres" target="_blank"><img src="https://media.giphy.com/media/T8LLTqZTd8NaPLctMs/giphy.gif" height="600px" width="10000px"/></a>
 
@@ -10,8 +10,8 @@ Initial prototype of web application for page design and creation of objects, 3d
 
 ## Authors
 
-- [@Johnkegd](https://www.github.com/johnkegd)
-- [@Manuelmid](https://www.github.com/manuelmid)
+- [@John Garcia](https://www.github.com/johnkegd)
+- [@Manuel Duran](https://www.github.com/manuelmid)
 
 
 ## License
