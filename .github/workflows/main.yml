@@ -8,7 +8,7 @@ on:
       types: [published, edited]
   push:
     tags:
-      - v1.**
+      - v0.**
       
 jobs:
   build-deploy:
