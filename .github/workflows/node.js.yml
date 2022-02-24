@@ -20,12 +20,10 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [6.14.13]
+        node-version: [14.17.3]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: serverless deploy
-      run: npx serverless deploy --stage=dev --verbose
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
@@ -35,3 +33,10 @@ jobs:
     - run: npm install
     - run: npm run build
     - run: npm test
+    - name: Deploy
+      uses: crazy-max/ghaction-github-pages@v1
+      with:
+        target_branch: gh-pages
+        build_dir: /build
+      env:
+        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
