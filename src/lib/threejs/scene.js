@@ -84,7 +84,7 @@ function addLights() {
 }
 
 export const init = function (el, uiContainer) {
-    //addMeshes();
+    addMeshes();
     addLights();
     addModel();
     renderer = new THREE.WebGLRenderer({ canvas: el, antialias: true });
