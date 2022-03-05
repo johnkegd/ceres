@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { init, updateSizes, scolling } from '$lib/threejs/scene';
-	let width, height, el, scrollY, scrollX;
+	let width, height, el, uiContainer, scrollY, scrollX;
 	onMount(() => {
 		el.width = width;
 		el.height = height;
@@ -14,11 +14,12 @@
 	bind:innerHeight={height}
 	bind:scrollY
 	bind:scrollX
-	on:scroll={scolling}
+	on:scroll={scolling(scrollY)}
 	on:resize={updateSizes({ width, height })}
 />
 
 <canvas bind:this={el} {width} {height} />
+<div class="gui-container" bind:this={uiContainer} />
 <section>Section 1</section>
 <section>Section 2</section>
 <section>Section 3</section>

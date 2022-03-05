@@ -5,15 +5,18 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 const scrollingPositions = {
     scrollY: 0,
     scrollX: 0,
+    startPosition: 17,
 };
 const windowSizes = {
     height: 0,
     with: 0,
 }
-window.scrolling = scrollingPositions;
 
-let renderer, controls;
+let renderer, controls, humaGroup = new THREE.Group(), clock = new THREE.Clock();
 const scene = new THREE.Scene();
+
+scene.add(humaGroup);
+
 const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 1000);
 camera.position.y = 20;
 camera.position.z = 10;
@@ -36,14 +39,15 @@ function addModel() {
 
     loader.load('threejs/models/human.glb',
         function (model) {
-            console.log(model);
-            scene.add(model.scene);
+            //console.log(model);
+            //scene.add(model.scene)
+            humaGroup.add(model.scene);
         },
         function (xhr) {
-            console.log((xhr.loaded / xhr.total * 100) + "% loaded");
+            //console.log((xhr.loaded / xhr.total * 100) + "% loaded");
         },
         function (error) {
-            console.log("Error loading object: ", error);
+            //console.log("Error loading object: ", error);
         }
     );
 }
@@ -59,19 +63,24 @@ export const updateSizes = function (sizes) {
     camera.updateProjectionMatrix();
 }
 
-export const scolling = function () {
-    scrollingPositions.scrollY = window.scrollY;
+export const scolling = function (scrollY) {
+    scrollingPositions.scrollY = scrollY;
+    const elapsedTime = clock.getElapsedTime();
+    humaGroup.rotateY(Math.sin(elapsedTime) * 0.01);
+    window.human = humaGroup;
     scrollingPositions.scrollX = window.scrollX;
 }
-window.camera = camera;
+//window.camera = camera;
 
 
 
 function animate() {
     requestAnimationFrame(animate);
+    const elapsedTime = clock.getElapsedTime();
 
-    camera.position.y = -  scrollingPositions.scrollY * 0.03 + 20;
+    camera.position.y = -  scrollingPositions.scrollY * 0.005 + scrollingPositions.startPosition;
 
+    //humaGroup.rotateY(elapsedTime * Math.PI);
     renderer.render(scene, camera);
 }
 
@@ -84,7 +93,7 @@ function addLights() {
 }
 
 export const init = function (el, uiContainer) {
-    addMeshes();
+    //addMeshes();
     addLights();
     addModel();
     renderer = new THREE.WebGLRenderer({ canvas: el, antialias: true });
