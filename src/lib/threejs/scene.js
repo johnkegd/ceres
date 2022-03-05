@@ -131,6 +131,7 @@ function addGui(container, model) {
         lightFolder.add(directionaLightSettings, 'z').min(-100).max(100).step(0.0001).onChange(() => {
             directionaLight.position.z = directionaLightSettings.z;
         });
+        lightFolder.close();
 
     }
 
