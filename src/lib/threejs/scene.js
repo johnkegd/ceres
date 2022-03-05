@@ -16,12 +16,12 @@ const windowSizes = {
 }
 
 const humanModelSettings = {
-    materialColor: '#385df0',
+    materialColor: '#8187a2',
     wireframe: false,
 };
 
 const directionaLightSettings = {
-    x: -41.3497, y: 5.7669, z: 8.3845,
+    x: 86.9121, y: 5.7669, z: 8.3845,
 }
 
 let renderer,
@@ -40,6 +40,9 @@ scene.add(humaGroup);
 const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 1000);
 camera.position.y = 20;
 camera.position.z = 10;
+
+const textureLoader = new THREE.TextureLoader();
+const texture = textureLoader.load('threejs/textures/flag_of_Ukraine.png');
 
 function addMeshes() {
     const geometry = new THREE.BoxGeometry();
@@ -62,8 +65,8 @@ function addModel() {
             //console.log(model);
             //scene.add(model.scene)
             humaGroup.add(model.scene);
-            window.human = model.scene;
-            model.scene.children[0].material.color.set("#385df0");
+            model.scene.children[0].material.color.set(humanModelSettings.materialColor);
+            model.scene.children[0].material.map = texture;
             addGui(null, model.scene);
         },
         function (xhr) {
@@ -145,6 +148,7 @@ export const init = function (el, guiContainer) {
     addLights();
     addModel();
     renderer = new THREE.WebGLRenderer({ canvas: el, antialias: true });
+    window.renderer = renderer;
     updateSizes({ width: el.width, height: el.height });
     addGui(guiContainer);
     animate();
