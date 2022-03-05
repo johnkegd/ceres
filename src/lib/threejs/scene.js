@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
+import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
+import { mode } from '$app/env';
+
 
 const scrollingPositions = {
     scrollY: 0,
@@ -12,7 +15,24 @@ const windowSizes = {
     with: 0,
 }
 
-let renderer, controls, humaGroup = new THREE.Group(), clock = new THREE.Clock();
+const humanModelSettings = {
+    materialColor: '#385df0',
+    wireframe: false,
+};
+
+const directionaLightSettings = {
+    x: -41.3497, y: 5.7669, z: 8.3845,
+}
+
+let renderer,
+    controls,
+    humaGroup = new THREE.Group(),
+    clock = new THREE.Clock(),
+    guiContainer,
+    directionaLight,
+    guiActive;
+
+
 const scene = new THREE.Scene();
 
 scene.add(humaGroup);
@@ -42,6 +62,9 @@ function addModel() {
             //console.log(model);
             //scene.add(model.scene)
             humaGroup.add(model.scene);
+            window.human = model.scene;
+            model.scene.children[0].material.color.set("#385df0");
+            addGui(null, model.scene);
         },
         function (xhr) {
             //console.log((xhr.loaded / xhr.total * 100) + "% loaded");
@@ -67,7 +90,7 @@ export const scolling = function (scrollY) {
     scrollingPositions.scrollY = scrollY;
     const elapsedTime = clock.getElapsedTime();
     humaGroup.rotateY(Math.sin(elapsedTime) * 0.01);
-    window.human = humaGroup;
+
     scrollingPositions.scrollX = window.scrollX;
 }
 //window.camera = camera;
@@ -85,18 +108,43 @@ function animate() {
 }
 
 function addLights() {
-    const light = new THREE.DirectionalLight({ color: "#fafa00", intensity: 10 });
-    light.position.x = 3;
-    light.position.y = 12;
-    light.position.z = 6;
-    scene.add(light);
+    directionaLight = new THREE.DirectionalLight({ color: "#fafa00", intensity: 10 });
+    directionaLight.position.set(directionaLightSettings.x, directionaLightSettings.y, directionaLightSettings.z);
+    scene.add(directionaLight);
 }
 
-export const init = function (el, uiContainer) {
+function addGui(container, model) {
+
+    if (model) {
+        const gui = new GUI({ container: guiContainer });
+        gui.add(model.children[0].material, 'wireframe');
+        gui.addColor(humanModelSettings, 'materialColor').onChange(() => {
+            model.children[0].material.color.set(humanModelSettings.materialColor);
+        });
+        const lightFolder = gui.addFolder('DirectionalLight');
+        lightFolder.add(directionaLightSettings, 'x').min(-100).max(100).step(0.0001).onChange(() => {
+            directionaLight.position.x = directionaLightSettings.x;
+        });
+        lightFolder.add(directionaLightSettings, 'y').min(-100).max(100).step(0.0001).onChange(() => {
+            directionaLight.position.y = directionaLightSettings.y;
+        });
+        lightFolder.add(directionaLightSettings, 'z').min(-100).max(100).step(0.0001).onChange(() => {
+            directionaLight.position.z = directionaLightSettings.z;
+        });
+
+    }
+
+    if (container) {
+        guiContainer = container;
+    }
+}
+
+export const init = function (el, guiContainer) {
     //addMeshes();
     addLights();
     addModel();
     renderer = new THREE.WebGLRenderer({ canvas: el, antialias: true });
     updateSizes({ width: el.width, height: el.height });
+    addGui(guiContainer);
     animate();
 }

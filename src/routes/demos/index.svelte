@@ -1,11 +1,11 @@
 <script>
 	import { onMount } from 'svelte';
 	import { init, updateSizes, scolling } from '$lib/threejs/scene';
-	let width, height, el, uiContainer, scrollY, scrollX;
+	let width, height, el, guiContainer, scrollY, scrollX;
 	onMount(() => {
 		el.width = width;
 		el.height = height;
-		init(el);
+		init(el, guiContainer);
 	});
 </script>
 
@@ -19,7 +19,7 @@
 />
 
 <canvas bind:this={el} {width} {height} />
-<div class="gui-container" bind:this={uiContainer} />
+<div class="lil-gui autoPlace" bind:this={guiContainer} />
 <section>Section 1</section>
 <section>Section 2</section>
 <section>Section 3</section>
