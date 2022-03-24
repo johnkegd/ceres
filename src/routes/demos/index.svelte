@@ -40,10 +40,6 @@
 	<h2>Section 5</h2>
 	<p>description</p>
 </section>
-<section>
-	<h2>Section 6</h2>
-	<p>description</p>
-</section>
 
 <style>
 	canvas {

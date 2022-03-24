@@ -2,7 +2,6 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
-import { mode } from '$app/env';
 
 
 const scrollingPositions = {
@@ -41,14 +40,16 @@ const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 1000);
 camera.position.y = 20;
 camera.position.z = 10;
 
-const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load('threejs/textures/flag_of_Ukraine.png');
+//const textureLoader = new THREE.TextureLoader();
+//const texture = textureLoader.load('threejs/textures/flag_of_Ukraine.png');
 
 function addMeshes() {
     const geometry = new THREE.BoxGeometry();
     const boxMesh = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
         color: "red",
     }));
+
+    window.boxMesh = boxMesh;
 
     scene.add(boxMesh);
 }
@@ -65,8 +66,9 @@ function addModel() {
             //console.log(model);
             //scene.add(model.scene)
             humaGroup.add(model.scene);
-            model.scene.children[0].material.color.set(humanModelSettings.materialColor);
-            model.scene.children[0].material.map = texture;
+            window.mesh = humaGroup;
+            //model.scene.children[0].material.color.set(humanModelSettings.materialColor);
+            //model.scene.children[0].material.map = texture;
             addGui(null, model.scene);
         },
         function (xhr) {
@@ -144,12 +146,12 @@ function addGui(container, model) {
 }
 
 export const init = function (el, guiContainer) {
-    //addMeshes();
+    addMeshes();
     addLights();
     addModel();
     renderer = new THREE.WebGLRenderer({ canvas: el, antialias: true });
-    window.renderer = renderer;
     updateSizes({ width: el.width, height: el.height });
     addGui(guiContainer);
     animate();
+    window.camera = camera;
 }
