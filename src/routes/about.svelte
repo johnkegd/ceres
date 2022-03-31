@@ -19,25 +19,29 @@
 </svelte:head>
 
 <div class="content">
-	<h1>About this app</h1>
+	<h1>Manuel Duran</h1>
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
+	<p>I am a digital content developer, creative and passionate about art, under the name of:</p>
 
 	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
+	<pre>Ceres</pre>
 
 	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
+		Offer to you the best quality of digital products is my main goal, achieve the best result in
+		whatever you are looking, leaving my creativity talent to fly. My strength is digital art,
+		implemented programs like:
 	</p>
+	<ul>
+		<li>Photoshop (Graphic Designs)</li>
+		<li>Blender (3d Designs and Animations)</li>
+		<li>Fl studio (Production and development of music tracks and sound effects)</li>
+		<li>HTML(Web) -CSS(Web)</li>
+	</ul>
 
 	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
+		I look forward to working together with my customers and helping you achieve exactly what
+		they're looking for. Visit my <a href="/todos">TODOs</a> page and tell me what i could improve in
+		my portfolio!
 	</p>
 </div>
 
@@ -46,5 +50,18 @@
 		width: 100%;
 		max-width: var(--column-width);
 		margin: var(--column-margin-top) auto 0 auto;
+	}
+
+	pre {
+		text-align: center;
+		text-transform: uppercase;
+		text-shadow: 1px 1px black;
+		-webkit-text-stroke-width: thick;
+		letter-spacing: 15px;
+		color: #0e0e0e29;
+	}
+
+	ul {
+		color: var(--heading-color);
 	}
 </style>

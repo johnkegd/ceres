@@ -7,12 +7,12 @@
 	import { onMount } from 'svelte';
 	import { landingScene, resizeHandler } from '$lib/threejs/landing/landing-scene';
 
-	let canvas, innerHeight, innerWidth;
+	let canvas, innerHeight, innerWidth, guiContainer;
 
 	onMount(() => {
 		canvas.width = innerWidth;
 		canvas.height = innerHeight;
-		landingScene(canvas);
+		landingScene(canvas, guiContainer);
 	});
 </script>
 
@@ -20,11 +20,8 @@
 	<title>Home</title>
 </svelte:head>
 
-<svelte:window
-	bind:innerWidth
-	bind:innerHeight
-	onresize={resizeHandler({ innerWidth, innerHeight })}
-/>
+<svelte:window bind:innerWidth bind:innerHeight on:resize={resizeHandler} />
+<div class="lil-gui autoPlace" bind:this={guiContainer} />
 <canvas bind:this={canvas} />
 
 <style>
