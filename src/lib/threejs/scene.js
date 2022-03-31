@@ -58,7 +58,7 @@ function addModel() {
     const loader = new GLTFLoader();
 
     const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath('threejs/draco/');
+    dracoLoader.setDecoderPath('threejs/loaders/draco/');
     loader.setDRACOLoader(dracoLoader);
 
     loader.load('threejs/models/human.glb',
