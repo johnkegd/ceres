@@ -1,50 +1,20 @@
 <script>
 	import { page } from '$app/stores';
+	import { beforeUpdate } from 'svelte';
 	import logo from './ceres-logo.svg';
-	import Navigation from '@johnkegd/navigation';
+	import Logo from '$lib/Logo.svelte';
+	import Navigation from './Navigation.svelte';
 </script>
 
 <header>
 	<div class="corner left">
 		<a href="/">
-			<svg
-				version="1.0"
-				xmlns="http://www.w3.org/2000/svg"
-				width="500.000000pt"
-				height="500.000000pt"
-				viewBox="0 0 500.000000 500.000000"
-				preserveAspectRatio="xMidYMid meet"
-			>
-				<metadata> Created by potrace 1.16, written by Peter Selinger 2001-2019 </metadata>
-				<g
-					transform="translate(0.000000,500.000000) scale(.100000,-0.100000)"
-					fill="#000000"
-					stroke="none"
-				>
-					<path
-						d="M1280 3574 l-715 -715 805 -799 805 -799 140 139 140 140 -345 345
-			-345 345 60 60 60 60 240 -238 c132 -130 264 -260 293 -287 l52 -49 0 221 0
-			221 -170 188 -171 188 193 193 193 193 177 -177 c172 -172 177 -178 160 -197
-			-9 -11 -92 -102 -184 -204 l-168 -183 0 -222 0 -222 108 105 c59 58 197 194
-			307 303 l200 197 85 -85 85 -85 -335 -335 -335 -335 142 -142 143 -143 265
-			265 c325 324 879 896 884 913 2 6 98 108 215 225 l211 212 -710 710 c-390 391
-			-714 710 -720 710 -13 0 -425 -412 -425 -425 0 -5 253 -263 562 -572 l563
-			-563 -63 -62 -62 -63 -333 330 c-182 182 -432 428 -553 549 l-221 218 -552
-			-553 -552 -553 -60 60 -59 59 570 570 c313 313 570 575 570 580 0 13 -412 425
-			-425 425 -6 0 -332 -322 -725 -716z"
-					/>
-					<path
-						d="M2406 2797 c-22 -12 -53 -39 -70 -60 -29 -36 -31 -45 -31 -117 0 -72
-			2 -81 31 -117 47 -58 98 -83 169 -83 71 0 122 25 169 83 29 36 31 45 31 117 0
-			72 -2 81 -31 117 -47 58 -98 83 -169 83 -44 0 -71 -6 -99 -23z"
-					/>
-				</g>
-			</svg>
+			<Logo />
 		</a>
 	</div>
 
 	<div class="corner right">
-		<Navigation />
+		<Navigation pathname={$page.url.pathname} />
 		<!-- TODO put something else here? github link? -->
 	</div>
 </header>

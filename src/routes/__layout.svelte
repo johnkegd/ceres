@@ -1,17 +1,20 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
+	import { page } from '$app/stores';
 </script>
 
-<Header />
+<div page={$page.url.pathname} class="container-s-PoaHcXV6SIWL">
+	<Header />
 
-<main>
-	<slot />
-</main>
+	<main>
+		<slot />
+	</main>
 
-<footer>
-	<p>Ceres <a href="/">2022</a> copyright</p>
-</footer>
+	<footer>
+		<p>Ceres <a href="/">2022</a> copyright</p>
+	</footer>
+</div>
 
 <style>
 	main {

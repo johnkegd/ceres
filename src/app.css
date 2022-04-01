@@ -5,6 +5,7 @@
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 	--pure-white: #ffffff;
+	--pure-black: #000000;
 	--primary-color: #b9c6d2;
 	--secondary-color: #d0dde9;
 	--tertiary-color: #edf0f8;
@@ -132,4 +133,21 @@ section {
 }
 section * {
 	color: #ffeded !important;
+}
+
+
+div[page="/"] *:not(a){
+	color:var(--pure-white);
+}
+
+div[page="/"] *:not(a) svg  {	
+	fill:var(--pure-white) !important;
+}
+
+div[page="/"] *:not(a) input + label span {
+	background:var(--pure-white) !important
+}
+
+div[page="/"] *:not(a) input:checked + label span {
+	background:var(--pure-black) !important
 }
