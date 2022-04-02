@@ -1,22 +1,23 @@
 <script>
 	import { onMount } from 'svelte';
-	import { init, updateSizes, scolling } from '$lib/threejs/scene';
 	let width, height, el, guiContainer, scrollY, scrollX;
+
+	/* 	import { init, updateSizes, scolling } from '$lib/threejs/scene';
 	onMount(() => {
 		el.width = width;
 		el.height = height;
 		init(el, guiContainer);
-	});
+	}); */
 </script>
 
-<svelte:window
+<!-- <svelte:window
 	bind:innerWidth={width}
 	bind:innerHeight={height}
 	bind:scrollY
 	bind:scrollX
 	on:scroll={scolling(scrollY)}
 	on:resize={updateSizes({ width, height })}
-/>
+/> -->
 
 <canvas bind:this={el} {width} {height} />
 <div class="lil-gui autoPlace" bind:this={guiContainer} />

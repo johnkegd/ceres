@@ -5,8 +5,8 @@
 <script>
 	import Counter from '$lib/Counter.svelte';
 	import { onMount } from 'svelte';
-	import { landingScene, resizeHandler } from '$lib/threejs/landing/landing-scene';
-	import BlackHole from '$lib/BlackHole.svelte';
+	/* 	import { landingScene, resizeHandler } from '$lib/threejs/landing/landing-scene';
+	 */ import BlackHole from '$lib/BlackHole.svelte';
 	let canvas, innerHeight, innerWidth, guiContainer;
 
 	/* onMount(() => {
