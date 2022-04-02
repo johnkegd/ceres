@@ -5,27 +5,33 @@
 <script>
 	import Counter from '$lib/Counter.svelte';
 	import { onMount } from 'svelte';
-	/* 	import { landingScene, resizeHandler } from '$lib/threejs/landing/landing-scene';
-	 */ import BlackHole from '$lib/BlackHole.svelte';
+
+	import Experience from '$lib/threejs/experience/Experience';
+	//import { landingScene, resizeHandler } from '$lib/threejs/landing/landing-scene';
+
 	let canvas, innerHeight, innerWidth, guiContainer;
 
-	/* onMount(() => {
+	const loadHandler = (ev) => {
+		console.log(ev);
+	};
+
+	onMount((ev) => {
+		// update canvas sizes before sending to the experience to prevent errors;
 		canvas.width = innerWidth;
 		canvas.height = innerHeight;
-		landingScene(canvas, guiContainer);
-	}); */
+		let experience = new Experience(canvas);
+		console.log('on mount', ev, window);
+	});
 </script>
 
 <svelte:head>
 	<title>Home</title>
 </svelte:head>
 
-<!-- <svelte:window bind:innerWidth bind:innerHeight on:resize={resizeHandler} />
+<svelte:window bind:innerWidth bind:innerHeight />
 <div class="lil-gui autoPlace" bind:this={guiContainer} />
-<canvas bind:this={canvas} />
- -->
+<canvas bind:this={canvas} width={innerWidth} height={innerHeight} />
 
-<BlackHole />
 <div class="cont_principal">
 	<div class="cont_error">
 		<h1>Ceres</h1>
