@@ -3,28 +3,28 @@ export default [
         name: 'environmentMapTexture',
         type: 'cubeTexture',
         path:
-        [
-            'textures/environmentMap/px.jpg',
-            'textures/environmentMap/nx.jpg',
-            'textures/environmentMap/py.jpg',
-            'textures/environmentMap/ny.jpg',
-            'textures/environmentMap/pz.jpg',
-            'textures/environmentMap/nz.jpg'
-        ]
+            [
+                'threejs/textures/environmentMap/px.jpg',
+                'threejs/textures/environmentMap/nx.jpg',
+                'threejs/textures/environmentMap/py.jpg',
+                'threejs/textures/environmentMap/ny.jpg',
+                'threejs/textures/environmentMap/pz.jpg',
+                'threejs/textures/environmentMap/nz.jpg'
+            ]
     },
     {
         name: 'grassColorTexture',
         type: 'texture',
-        path: 'textures/dirt/color.jpg'
+        path: 'threejs/textures/dirt/color.jpg'
     },
     {
         name: 'grassNormalTexture',
         type: 'texture',
-        path: 'textures/dirt/normal.jpg'
+        path: 'threejs/textures/dirt/normal.jpg'
     },
     {
         name: 'foxModel',
         type: 'gltfModel',
-        path: 'models/Fox/glTF/Fox.gltf'
+        path: 'threejs/models/Fox/glTF/Fox.gltf'
     }
 ]
