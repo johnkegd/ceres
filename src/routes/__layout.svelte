@@ -33,7 +33,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 40px;
+		/* padding: 40px; */
 	}
 
 	footer a {
@@ -42,7 +42,7 @@
 
 	@media (min-width: 480px) {
 		footer {
-			padding: 40px 0;
+			/* 	padding: 40px 0; */
 		}
 	}
 </style>
