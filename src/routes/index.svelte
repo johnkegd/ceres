@@ -20,6 +20,12 @@
 		canvas.width = innerWidth;
 		canvas.height = innerHeight;
 		let experience = new Experience(canvas);
+
+		// needed because issue in initialization. camera not well positioned
+		window.setTimeout(() => {
+			window.dispatchEvent(new CustomEvent('resize'));
+		}, 0);
+
 		console.log('on mount', ev, window);
 	});
 </script>
