@@ -28,6 +28,10 @@
 		box-sizing: border-box;
 	}
 
+	div[page='/'] footer {
+		display: none;
+	}
+
 	footer {
 		display: flex;
 		flex-direction: column;

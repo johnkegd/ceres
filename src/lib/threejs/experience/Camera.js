@@ -4,10 +4,14 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 export default class Camera {
     constructor() {
-        this.experience = new Experience();
+        this.experience = Experience.getInstance();
         this.sizes = this.experience.sizes;
         this.scene = this.experience.scene;
         this.canvas = this.experience.canvas;
+        this.resources = this.experience.resources;
+
+        this.resource = this.resources.items.camera;
+        console.log(this.resource);
 
         this.setInstance();
         this.setControls();

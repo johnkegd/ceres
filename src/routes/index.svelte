@@ -4,6 +4,7 @@
 
 <script>
 	import Counter from '$lib/Counter.svelte';
+	import SocialMedia from '$lib/SocialMedia.svelte';
 	import { onMount } from 'svelte';
 
 	import Experience from '$lib/threejs/experience/Experience';
@@ -19,7 +20,7 @@
 		// update canvas sizes before sending to the experience to prevent errors;
 		canvas.width = innerWidth;
 		canvas.height = innerHeight;
-		let experience = new Experience(canvas);
+		//let experience = new Experience(canvas);
 
 		// needed because issue in initialization. camera not well positioned
 		window.setTimeout(() => {
@@ -31,59 +32,36 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Ceres Home</title>
 </svelte:head>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 <div class="lil-gui autoPlace" bind:this={guiContainer} />
 <canvas bind:this={canvas} width={innerWidth} height={innerHeight} />
 
-<div class="cont_principal">
-	<div class="cont_error">
-		<h1>Ceres</h1>
-		<p>Page in construction 👨‍💻.</p>
+<section>
+	<div class="cont_principal">
+		<div class="cont_error">
+			<h1>Ceres</h1>
+			<p>Page in construction 👨‍💻.</p>
+		</div>
 	</div>
-</div>
+	<SocialMedia />
+</section>
 
 <style>
 	h1,
 	h2,
 	p {
-		margin: 0 auto;
 		color: white;
 	}
 	h1 {
-		font-size: 2.8em;
 		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-	p {
-		margin: 1em auto;
-	}
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-		h2 {
-			font-size: 0.55em;
-		}
-	}
-	@media (min-width: 1080px) {
-		h1 {
-			font-size: 6em;
-		}
-		h2 {
-			font-size: 2em;
-		}
 	}
 
-	.cont_principal {
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		overflow: hidden;
-		position: absolute;
-		padding: 10px;
+	section {
+		display: grid;
+		margin: auto;
 	}
 
 	.cont_error > h1 {

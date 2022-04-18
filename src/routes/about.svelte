@@ -1,5 +1,6 @@
 <script context="module">
 	import { browser, dev } from '$app/env';
+	import SocialMedia from '$lib/SocialMedia.svelte';
 
 	// we don't need any JS on this page, though we'll load
 	// it in dev so that we get hot module replacement...
@@ -19,12 +20,18 @@
 </svelte:head>
 
 <div class="content">
+	<div class="image-container">
+		<a href="https://www.linkedin.com/in/manuel-duran-a99280217/" target="_Blank">
+			<!-- svelte-ignore a11y-img-redundant-alt -->
+			<img src="images/manuel-duran-profile-picture.jpeg" alt="Manuel Duran picture" />
+		</a>
+	</div>
 	<h1>Manuel Duran</h1>
 
 	<p>I am a digital content developer, creative and passionate about art, under the name of:</p>
 
 	<!-- TODO lose the @next! -->
-	<pre>Ceres</pre>
+	<pre class="brand">Ceres</pre>
 
 	<p>
 		Offer to you the best quality of digital products is my main goal, achieve the best result in
@@ -43,6 +50,7 @@
 		they're looking for. Visit my <a href="/todos">TODOs</a> page and tell me what i could improve in
 		my portfolio!
 	</p>
+	<SocialMedia />
 </div>
 
 <style>
@@ -52,16 +60,63 @@
 		margin: var(--column-margin-top) auto 0 auto;
 	}
 
+	.content *:not(.brand) {
+		color: var(--pure-white);
+	}
+
 	pre {
 		text-align: center;
 		text-transform: uppercase;
 		text-shadow: 1px 1px black;
 		-webkit-text-stroke-width: thick;
 		letter-spacing: 15px;
-		color: #0e0e0e29;
+		color: var(--pure-white);
+		background-image: url('images/triangles-art.jpg');
+		background-repeat: no-repeat;
+		background-size: 700px;
+		animation: bg-animation 5s ease-out infinite;
 	}
 
 	ul {
 		color: var(--heading-color);
+	}
+
+	h1 {
+		text-align: center;
+	}
+	img {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+
+		object-fit: cover;
+		object-position: center right;
+	}
+	.image-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@keyframes bg-animation {
+		0% {
+			background-position: 0% 40%;
+		}
+
+		25% {
+			background-position: 100% 30%;
+		}
+
+		50% {
+			background-position: 50% 20%;
+		}
+
+		75% {
+			background-position: 0% 15%;
+		}
+
+		100% {
+			background-position: 100% 10%;
+		}
 	}
 </style>
