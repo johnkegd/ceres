@@ -31,7 +31,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Ceres Home</title>
 </svelte:head>
 
 <svelte:window bind:innerWidth bind:innerHeight />

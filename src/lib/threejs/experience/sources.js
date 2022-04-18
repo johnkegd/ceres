@@ -26,5 +26,10 @@ export default [
         name: 'foxModel',
         type: 'gltfModel',
         path: 'threejs/models/Fox/glTF/Fox.gltf'
+    },
+    {
+        name: 'camera',
+        type: 'gltfModel',
+        path: 'threejs/cameras/camera.glb'
     }
 ]
